@@ -20,8 +20,6 @@ export class WeatherComponent implements OnInit {
   getCurrentWeather(city) {
     this.weatherService.getCurrentWeather(city).subscribe(res => {
         this.todaysWeather = res;
-        console.log(this.todaysWeather);
-
         var sugg= this.todaysWeather.weather.main;
         switch(sugg){
           case 'Clear':
@@ -43,7 +41,6 @@ export class WeatherComponent implements OnInit {
     this.getCurrentWeather(this.addCity);     
     this.weatherService.getForecast(this.addCity).subscribe((data:any) => {
        for(let i=0; i<data.list.length; i+=8){
-         console.log(data.list[i]);
          this.weatherForecast.push(data.list[i]);
        }
     });

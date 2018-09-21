@@ -19,7 +19,6 @@ export class WeatherService {
   getCurrentWeather(city: string): Observable<any> {
     const apiCall = `https://api.openweathermap.org/data/2.5/weather?q=${city}&units=${this.unit
     }&APPID=${this.apiKey}`;
-    console.log("apiCall", apiCall);
     return this.httpClient.get<any>(apiCall).pipe(map(resp=> {
        const weather = resp.weather[0];
        const name =resp.name;
@@ -32,7 +31,6 @@ export class WeatherService {
       getForecast(city: string){
     const apiCall = `https://api.openweathermap.org/data/2.5/forecast?q=${city}&units=${this.unit
       }&APPID=${this.apiKey}`;
-    console.log("apiCall", apiCall);
     return this.httpClient.get<any[]>(apiCall).pipe(
     map((res: any[]) => {
          return res;
