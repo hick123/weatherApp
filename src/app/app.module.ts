@@ -6,6 +6,7 @@ import {HttpModule} from '@angular/http'
 import { FormsModule } from '@angular/forms'; // <-- NgModel lives here
 
 import { AppComponent } from './app.component';
+import { NgxSpinnerModule } from "ngx-spinner";
 import {
   MatToolbarModule,
   MatButtonModule,
@@ -40,6 +41,7 @@ import { WeatherService } from './weather.service';
     MatCardModule,
     HttpModule,
     FormsModule,
+    NgxSpinnerModule,
   ],
   providers: [WeatherService],
   bootstrap: [AppComponent]
