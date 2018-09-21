@@ -1,0 +1,43 @@
+<div></div>
+<mat-toolbar class=matTool >
+    <mat-toolbar-row class="toolbar">
+<span>
+<img src="../../assets/images/ama_33.png"></span>
+        <span><input type="text"  [(ngModel)]="addCity" class="input"><button (click)="searchCity()" class="bt">search</button></span>
+    </mat-toolbar-row>
+  </mat-toolbar>
+<div class="main-div">
+<mat-card class="today">
+  <mat-card-header class="todayHead">
+    <mat-card-title><h2>Today</h2></mat-card-title>
+        <mat-card-subtitle>
+        </mat-card-subtitle>
+  </mat-card-header>
+  <mat-card-content *ngIf="todaysWeather" class="todayswather">      
+    <div><span>City: </span>{{ todaysWeather.name}}</div>
+        <div><span><img src="http://openweathermap.org/img/w/{{todaysWeather.weather.icon}}.png"></span></div>
+<div>
+  <h2>{{ todaysWeather.temp}}°C</h2>
+</div>
+     <div><span>Condition:</span>{{ todaysWeather.weather.main}}</div>
+    <div><span>Description: </span>{{ todaysWeather.weather.description}} </div>
+   
+    <div><span>Suggestion:: {{suggestion}}
+        </span>
+    </div>
+</mat-card-content>
+ </mat-card>
+ </div>
+
+<div *ngIf="weatherForecast" class="forerow">
+<h2 class="fh">Forecast</h2>
+    <mat-card class="forecast" *ngFor="let weather of weatherForecast ">
+            <mat-card-content>
+            <div><span>Date: </span>{{ weather.dt_txt}}</div>
+<div class="icon"><img src="http://openweathermap.org/img/w/{{weather.weather[0].icon}}.png"></div>
+<div><h3>{{ weather.main.temp}}°C </h3></div>
+            <div><span>Description: </span>{{weather.weather[0].main}}</div>
+            <div><span>Description: </span>{{weather.weather[0].description}}</div>
+        </mat-card-content>
+    </mat-card>
+</div>
